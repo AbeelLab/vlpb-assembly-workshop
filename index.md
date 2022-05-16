@@ -1,37 +1,70 @@
-## Welcome to GitHub Pages
+# VLPB Assembly Workshop
 
-You can use the [editor on GitHub](https://github.com/AbeelLab/vlpb-assembly-workshop/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Location and travel
+By invitation only!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Jun 7-8, 2022 - Delft Lecture room F206 - building 22
+Workshop is in English
+ 
 
-### Markdown
+## Tools and preparation
+This is a bring your own machine workshop.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+A pre-packaged conda environment will be available 1 week in advance
 
-```markdown
-Syntax highlighted code block
+You will need to have a with a linux-like environment available that can run the pre-packaged environment with its tools. You can use any linux-like environment: WSL2, linux, Mac, VM or a remote system. Must support conda environment mentioned above
+ 
+## Schedule
 
-# Header 1
-## Header 2
-### Header 3
+### June 7 -- Assembly in the context of haplotypes
+ 
+Topics: 
+	• Assembly algorithm theory: de Brujn graphs and overlap-layout-consensus
+	• Assembly evaluation+polishing+(scaffolding)
+	 
+Exercises:
+	• Miniasm+Flye assembly: long reads/short reads
+	• Assembly evaluation (Quast+BUSCO)
+	• Assembly visualization (GenomeView), includes read-alignment to assemblies
+	 
+Planning:
+8:45 arrival
+9:00 start
+9:00-9:45 assembly lecture part 1
+10:00-10:45 assembly lecture part 2
+11:00-12:30 getting started with practical environment and start of exercises
+ 
+12:30-13:30 lunch
+13:30-14:15 lecture assembly evaluation and visualization
+14:30-16:45 exercises assembly
+16:45-17:00 day wrap-up
+ 
+###June 8 -- Haplotype phasing
+Topics:
+· Haplotype phasing theory
+· Haplotype phasing evaluation
+			· Different metrics and their interpretation
+			· Maybe scripts?
+			· Hamming rate/switch error >> accuracy due to improvements in algorithms
+					· (might be a good master project)
+·  
+ 
+Exercises
+· HAT and nPhase haplotype phasing on tetraploid simulated genome
+· Haplotype phasing evaluation
+· Haplotype phasing visualization (GenomeView)
+			· Alignment of reads to reconstructed haplotypes
+· Alignment of haplotypes (Mauve) 
+ 
+8:45 arrival
+9:00 start
+9:00-9:45 haplotype phasing lecture part 1
+10:00-10:45 haplotype phasing lecture part 2
+11:00-12:30 continuation of exercises
+ 
+12:30-13:30 lunch
+13:30-14:15 lecture haplotype phasing evaluation
+14:30-16:45 final exercises
+16:45-17:00 workshop wrap-up
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AbeelLab/vlpb-assembly-workshop/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
