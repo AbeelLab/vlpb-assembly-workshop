@@ -27,7 +27,7 @@ You will need a laptop with a linux-like environment available that can run the 
 - Assembly evaluation (Quast and BUSCO)
 - Assembly visualization (GenomeView), includes read-alignment to assemblies
 
-#### Plan
+#### Planning
 
 | &nbsp;      | &nbsp;                                                                       |
 |-------------|------------------------------------------------------------------------------|
@@ -48,7 +48,6 @@ You will need a laptop with a linux-like environment available that can run the 
 - Haplotype phasing theory
 - Haplotype phasing evaluation
 	- Different metrics and their interpretation
-	- Maybe scripts?
 	- Hamming rate/switch error >> accuracy due to improvements in algorithms 
 
 #### Exercises
@@ -58,7 +57,8 @@ You will need a laptop with a linux-like environment available that can run the 
 	- Alignment of reads to reconstructed haplotypes
 	- Alignment of haplotypes (Mauve) 
  
-#### Plan
+#### Planning
+
 | &nbsp;      | &nbsp;                                |
 |-------------|---------------------------------------|
 | 8:45        | Arrival                               |
@@ -70,5 +70,7 @@ You will need a laptop with a linux-like environment available that can run the 
 | 13:30-14:15 | Lecture: haplotype phasing evaluation |
 | 14:30-16:45 | Exercises: final exercises            |
 | 16:45-17:00 | workshop wrap-up                      |
+
+
 
 
