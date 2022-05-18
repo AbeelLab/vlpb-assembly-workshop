@@ -18,16 +18,16 @@ You will need a laptop with a linux-like environment available that can run the 
 
 ## June 7 -- Assembly in the context of haplotypes
  
-#### Topics 
+### Topics 
 - Assembly algorithm theory: de Brujn graphs and overlap-layout-consensus
 - Assembly evaluation, polishing and scaffolding 
 
-#### Exercises
+### Exercises
 - Assembly using long and short reads (Miniasm and Flye)
 - Assembly evaluation (Quast and BUSCO)
 - Assembly visualization (GenomeView), includes read-alignment to assemblies
 
-#### Planning
+### Planning
 
 | &nbsp;      | &nbsp;                                                                       |
 |-------------|------------------------------------------------------------------------------|
@@ -44,20 +44,21 @@ You will need a laptop with a linux-like environment available that can run the 
 
  
 ## June 8 -- Haplotype phasing
-#### Topics
+
+### Topics
 - Haplotype phasing theory
 - Haplotype phasing evaluation
 	- Different metrics and their interpretation
 	- Hamming rate/switch error >> accuracy due to improvements in algorithms 
 
-#### Exercises
+### Exercises
 - HAT and nPhase haplotype phasing on tetraploid simulated genome
 - Haplotype phasing evaluation
 - Haplotype phasing visualization (GenomeView)
-	- Alignment of reads to reconstructed haplotypes
-	- Alignment of haplotypes (Mauve) 
+  - Alignment of reads to reconstructed haplotypes
+  - Alignment of haplotypes (Mauve) 
  
-#### Planning
+ ### Planning
 
 | &nbsp;      | &nbsp;                                |
 |-------------|---------------------------------------|
