@@ -57,8 +57,9 @@ You will need a laptop with a linux-like environment available that can run the 
 - Haplotype phasing visualization (GenomeView)
   - Alignment of reads to reconstructed haplotypes
   - Alignment of haplotypes (Mauve) 
- 
- ### Planning
+
+
+### Planning
 
 | &nbsp;      | &nbsp;                                |
 |-------------|---------------------------------------|
