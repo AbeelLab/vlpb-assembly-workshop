@@ -3,7 +3,11 @@
 ## Location and travel
 By invitation only!
 
-Jun 7-8, 2022 - Delft Lecture room F206 - building 22    
+Jun 7-8, 2022 - Delft Lecture room F206 (lecture room G) - building 22    
+
+https://iamap.tudelft.nl/en/poi/applied-physics-faculty-of-applied-physics-2/
+
+Keep in mind that parking your car is non-trivial and may add 10-15 minutes to regular travel time.
 
 Workshop will be taught in English
  
