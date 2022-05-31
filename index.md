@@ -4,7 +4,8 @@
 By invitation only!
 
 Jun 7-8, 2022 - Delft Lecture room F206 - building 22    
-Workshop is in English
+
+Workshop will be taught in English
  
 
 # Tools and preparation
@@ -12,7 +13,7 @@ This is a bring your own machine workshop.
 
 A pre-packaged conda environment will be available 1 week in advance
 
-You will need a laptop with a linux-like environment available that can run the pre-packaged environment with its tools. You can use any linux-like environment: WSL2, linux, Mac, VM or a remote system. Must support conda environment mentioned above
+You will need a laptop with a linux-like environment available that can run the pre-packaged environment with its tools. You can use any linux-like environment: WSL2, linux, Mac, VM or a remote system. This system must support conda environment mentioned above
  
 # Schedule
 
