@@ -15,7 +15,7 @@ Workshop will be taught in English
 # Tools and preparation
 This is a bring your own machine workshop.
 
-A pre-packaged conda environment will be available 1 week in advance
+A conda package is available for each day. Review the day exercise schedule to install them.
 
 You will need a laptop with a linux-like environment available that can run the pre-packaged environment with its tools. You can use any linux-like environment: WSL2, linux, Mac, VM or a remote system. This system must support conda environment mentioned above
  
