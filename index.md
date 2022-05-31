@@ -3,7 +3,7 @@
 ## Location and travel
 By invitation only!
 
-Jun 7-8, 2022 - Delft Lecture room F206 - building 22
+Jun 7-8, 2022 - Delft Lecture room F206 - building 22    
 Workshop is in English
  
 
@@ -23,9 +23,10 @@ You will need a laptop with a linux-like environment available that can run the 
 - Assembly evaluation, polishing and scaffolding 
 
 ### Exercises
-- Assembly using long and short reads (Miniasm and Flye)
-- Assembly evaluation (Quast and BUSCO)
-- Assembly visualization (GenomeView), includes read-alignment to assemblies
+- Read QC (`NanoPlot`)
+- Assembly using long and short reads (`Miniasm` and `Flye`)
+- Assembly evaluation (`Quast`)
+- Assembly visualization (`Bandage`)
 
 ### Planning
 
@@ -41,7 +42,7 @@ You will need a laptop with a linux-like environment available that can run the 
 | 14:30-16:45 | Exercises: assembly                                                          |
 | 16:45-17:00 | Day 1 wrap-up                                                                |
 
-
+- You can find the documentation for day 1 exercises HERE.
  
 ## June 8 -- Haplotype phasing
 
@@ -52,8 +53,9 @@ You will need a laptop with a linux-like environment available that can run the 
 	- Hamming rate/switch error >> accuracy due to improvements in algorithms 
 
 ### Exercises
-- HAT and nPhase haplotype phasing on tetraploid simulated genome
-- Haplotype phasing evaluation
+- Haplotype phasing on triploid simulated genome (`HAT` and `nPhase`)
+- Assembling haplotype-phased reads (`miniasm`)
+- Haplotype phasing evaluation (`Quast`)
 - Haplotype phasing visualization (GenomeView)
   - Alignment of reads to reconstructed haplotypes
   - Alignment of haplotypes (Mauve) 
@@ -73,6 +75,4 @@ You will need a laptop with a linux-like environment available that can run the 
 | 14:30-16:45 | Exercises: final exercises            |
 | 16:45-17:00 | workshop wrap-up                      |
 
-
-
-
+- You can find the documentation for day 2 exercises HERE.
