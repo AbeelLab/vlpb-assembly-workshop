@@ -80,9 +80,9 @@ You will need a laptop with a linux-like environment available that can run the 
 | 10:45-11:00 | Coffee break                                                                 |
 | 11:00-12:30 | Exercises: continue                   |
 | 12:30-13:30 | Lunch                                 |
-| 13:30-14:15 | Lecture: haplotype phasing evaluation |
-| 14:15-14:30 | Coffee break                                                                 |
-| 14:30-16:45 | Exercises: final exercises            |
+| 13:30-15:15 | Exercises |
+| 15:15-15:30 | Coffee break                                                                 |
+| 15:30-16:45 | Exercises: final exercises            |
 | 16:45-17:00 | workshop wrap-up                      |
 
 - You can find the documentation for day 2 exercises HERE.
