@@ -82,7 +82,7 @@ You will need a laptop with a linux-like environment available that can run the 
 | 12:30-13:30 | Lunch                                 |
 | 13:30-15:15 | Exercises |
 | 15:15-15:30 | Coffee break                                                                 |
-| 15:30-16:45 | Exercises: final exercises            |
+| 15:30-16:45 | HaploViewer: final lecture and exercises            |
 | 16:45-17:00 | workshop wrap-up                      |
 
 - You can find the documentation for day 2 exercises HERE.
