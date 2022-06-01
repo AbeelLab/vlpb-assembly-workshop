@@ -44,9 +44,10 @@ You will need a laptop with a linux-like environment available that can run the 
 | 10:45-11:00 | Coffee break                                                                 |
 | 11:00-12:30 | Exercises: getting started with practical environment and start of exercises |
 | 12:30-13:30 | Lunch                                                                        |
-| 13:30-14:15 | Lecture: assembly evaluation and visualization                               |
-| 14:15-14:30 | Coffee break                                                                 |
-| 14:30-16:45 | Exercises: assembly                                                          |
+| 13:30-15:15 | Exercises: assembly        
+| 15:15-15:30 | Coffee break                                                                 |
+| 15:30-15:45 | Lecture: assembly evaluation and visualization                               |
+| 16:00-16:45 | Exercises: assembly                                                          |
 | 16:45-17:00 | Day 1 wrap-up                                                                |
 
 - You can find the documentation for day 1 exercises HERE.
