@@ -1,4 +1,4 @@
-The goal of Day 1 exercises is to assemble one chromosome of yeast genome, CBS1483, and then evaluate and visualize the assembly.
+The goal of Day 1 exercises is to assemble one chromosome of yeast genome, CBS1483, and then evaluate and visualize the assembly. We will use [`miniasm`](https://github.com/lh3/miniasm) and [`Flye`](https://github.com/fenderglass/Flye).
 
 First, we need to get started with the practical environment: download the zipped file titled `data-day1.tar.gz` [here](https://surfdrive.surf.nl/files/index.php/s/tC0vjrpECjndPLl) the password is `vlpb1`. This file contains the data and the `conda` environment that we will use in exercises today. We need to extract them.
 
@@ -31,7 +31,7 @@ mkdir assembly
 conda activate vlpb1
 ```
 
-- We will use `NanoPlot` to calculate read statistics and visualize them, we will create an `html` report.
+- We will use [`NanoPlot`](https://github.com/wdecoster/NanoPlot) to calculate read statistics and visualize them, we will create an `html` report.
 
 ```bash
 NanoPlot --fastq <input file> -o <output directory> --plots hex dot kde
@@ -45,7 +45,7 @@ You should replace `<input file>` with 3 `fastq` files stored in `reads`: `short
 
 #### Task: Preprocess reads
 
-- Filter the long reads to remove reads shorter than 10kbp. Use `filtlong`
+- Filter the long reads to remove reads shorter than 10kbp. Use [`Filtlong`](https://github.com/rrwick/Filtlong)
 
 ```bash
 filtlong --min_length 10000 longreads.fastq > longreads_filtered.fastq
@@ -64,13 +64,13 @@ mkdir assembly/miniasm
 - Then we can align the long reads
   
 ```bash
-minimap2 -x ava-ont -t 2 reads/longreads_filtered.fastq data/reads/longreads_filtered.fastq > assembly/miniasm/pairwise_longread_alignment.paf
+minimap2 -x ava-ont -t 2 data/reads/longreads_filtered.fastq data/reads/longreads_filtered.fastq > assembly/miniasm/pairwise_longread_alignment.paf
 ```
 
 - And run `miniasm`
   
 ```bash
-miniasm -f reads/longreads_filtered.fastq assembly/miniasm/pairwise_longread_alignment.paf > assembly/miniasm/miniasm_assembly.gfa
+miniasm -f data/reads/longreads_filtered.fastq assembly/miniasm/pairwise_longread_alignment.paf > assembly/miniasm/miniasm_assembly.gfa
 ```
 
 - Let's visualize the assembly graph
@@ -96,7 +96,7 @@ mkdir assembly/flye
 - This time we will assemble CBS1453 using `Flye`
   
 ```bash
-flye --nano-raw reads/longreads_filtered.fastq reads/longreads_filtered.fastq -t 2 -g 12M -i 3 --asm-coverage 40 --out-dir assembly/flye
+flye --nano-raw data/reads/longreads_filtered.fastq data/reads/longreads_filtered.fastq -t 2 -g 200000 -i 3 --asm-coverage 40 --out-dir assembly/flye
 ```
 
 #### Task: Polish assembly with short reads
@@ -105,7 +105,7 @@ flye --nano-raw reads/longreads_filtered.fastq reads/longreads_filtered.fastq -t
   
 ```bash
 bwa index assembly/miniasm/miniasm_assembly.fasta
-bwa mem -t 2 assembly/miniasm/miniasm_assembly.fasta reads/shortreads1.fastq reads/shortreads2.fastq > assembly/miniasm/miniasm_shortreads_aln.sam
+bwa mem -t 2 assembly/miniasm/miniasm_assembly.fasta data/reads/shortreads1.fastq reads/shortreads2.fastq > assembly/miniasm/miniasm_shortreads_aln.sam
   ```
 
 - Next, we will convert the `sam` alignment output to binary format `bam`, sort the alignment and index the sorted `bam` alignment so that we can use it as input to `Pilon`.
@@ -135,11 +135,11 @@ pilon --genome assembly/miniasm/miniasm_assembly.fasta --frags assembly/miniasm/
 ```bash
 mkdir assembly/miniasm/quast
 # On the initial assembly (before polishing)
-quast assembly/miniasm/miniasm_assembly.fasta -r reference/reference_scI_CP048983.1.fasta -g reference/reference_scI_CP048983.1.gff -o assembly/miniasm/quast --threads 2
+quast assembly/miniasm/miniasm_assembly.fasta -r data/reference/reference_scI_CP048983.1.fasta -g data/reference/reference_scI_CP048983.1.gff -o assembly/miniasm/quast --threads 2
 # On the polished assembly
-quast assembly/miniasm/miniasm_assembly_polished.fasta -r reference/reference_scI_CP048983.1.fasta -g reference/reference_scI_CP048983.1.gff -o assembly/miniasm/quast --threads 2
+quast assembly/miniasm/miniasm_assembly_polished.fasta -r data/reference/reference_scI_CP048983.1.fasta -g data/reference/reference_scI_CP048983.1.gff -o assembly/miniasm/quast --threads 2
 ```
 
 - Repeat the same steps for the `Flye` assembly
 
-#### Question: Do you notice any difference between the polished and unpolished assembly
+#### Question: Do you notice any difference between the polished and unpolished assembly?
