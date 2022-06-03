@@ -61,28 +61,27 @@ You will need a laptop with a linux-like environment available that can run the 
 	- Hamming rate/switch error >> accuracy due to improvements in algorithms 
 
 ### Exercises
-- Haplotype phasing on triploid simulated genome (`HAT` and `nPhase`)
+- Haplotype phasing on triploid simulated genome ([`HAT`](https://github.com/AbeelLab/hat) and `nPhase`)
 - Assembling haplotype-phased reads (`miniasm`)
-- Haplotype phasing evaluation (`Quast`)
-- Haplotype phasing visualization (`GenomeView`)
-  - Alignment of reads to reconstructed haplotypes
+- Haplotype phasing visualization (`GenomeView` and `HaplotypeVisualizer`)
+  - Alignment of reads to reconstructed haplotypes ('bwa')
   - Alignment of haplotypes (`Mauve`) 
 
 
 ### Planning
 
-| &nbsp;      | &nbsp;                                   |
-|-------------|------------------------------------------|
-| 8:45        | Arrival                                  |
-| 9:00        | Start                                    |
-| 9:00-9:45   | Lecture: haplotype phasing part 1        |
-| 10:00-10:45 | Lecture: haplotype phasing part 2        |
-| 10:45-11:00 | Coffee break                             |
-| 11:00-12:30 | Exercises: continue                      |
-| 12:30-13:30 | Lunch                                    |
-| 13:30-15:15 | Exercises                                |
-| 15:15-15:30 | Coffee break                             |
-| 15:30-16:45 | HaploViewer: final lecture and exercises |
-| 16:45-17:00 | workshop wrap-up                         |
+| &nbsp;      | &nbsp;                                           |
+|-------------|--------------------------------------------------|
+| 8:45        | Arrival                                          |
+| 9:00        | Start                                            |
+| 9:00-9:45   | Lecture: haplotype phasing part 1                |
+| 10:00-10:45 | Lecture: haplotype phasing part 2                |
+| 10:45-11:00 | Coffee break                                     |
+| 11:00-12:30 | Exercises: continue                              |
+| 12:30-13:30 | Lunch                                            |
+| 13:30-15:15 | Exercises                                        |
+| 15:15-15:30 | Coffee break                                     |
+| 15:30-16:45 | HaplotypeVisualizer: final lecture and exercises |
+| 16:45-17:00 | Workshop wrap-up                                 |
 
 - You can find the documentation for day 2 exercises [HERE](https://abeellab.github.io/vlpb-assembly-workshop/exercises-day2.html).
