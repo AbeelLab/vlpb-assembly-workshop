@@ -148,16 +148,31 @@ nphase pipeline --sampleName scI --reference data/reference/reference_scI_CP0489
 	- scI_0.1_0.01_0.05_0_phasedDataSimple.tsv: For each haplotig, the start position, stop position, chromosome, y position. Used to generate the phasedVis plot.
 	- scI_0.1_0.01_0.05_0_covVis.tsv: For each haplotig, the haplotig name, chromosome, 5kb window, mean coverage for the window
     
-- We also have one `fastq` file for each haplotig predicted in `Phased/FastQ`, and the long reads that belong to them. We can use these long reads to assemble haplotypes separately. We will use `miniasm` for assembly, you can repeat the commands we ran yesterday. First create a directory to store the phased assembly. 
+- We also have one `fastq` file for each haplotig predicted in `Phased/FastQ`, and the long reads that belong to them. We can use these long reads to assemble haplotypes separately. We will use `miniasm` for assembly, you can repeat the commands we ran yesterday. First create a directory to store the phased assembly. Then unzip the fastq files
 
 ```bash
 mkdir assembly/nphase
+gunzip phasing/nphase/scI/Phased/FastQ/*.gz
+
 # Pairwise alignment of long reads
-minimap2 -x ava-ont -t 2 phasing/nphase/scI/Phased/FastQ/reads/scI_0.1_0.01_0.05_0_mergedCluster_1944.fastq.gz phasing/nphase/scI/Phased/FastQ/reads/scI_0.1_0.01_0.05_0_mergedCluster_1944.fastq.gz > assembly/nphase/pairwise_longread_aln_hap1otype1.paf
+minimap2 -ax ava-ont phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_537.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_537.fastq > assembly/nphase/pairwise_longread_aln_haplotype1.paf
+minimap2 -ax ava-ont phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_539.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_539.fastq > assembly/nphase/pairwise_longread_aln_haplotype2.paf
+minimap2 -ax ava-ont phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_542.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_542.fastq > assembly/nphase/pairwise_longread_aln_haplotype3.paf
+minimap2 -ax ava-ont phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_544.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_544.fastq > assembly/nphase/pairwise_longread_aln_haplotype4.paf
+
 # Run miniasm
-miniasm -f phasing/nphase/scI/Phased/FastQ/reads/scI_0.1_0.01_0.05_0_mergedCluster_1944.fastq.gz assembly/nphase/pairwise_longread_aln_hap1otype1.paf > assembly/nphase/miniasm_assembly_haplotype1.gfa
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_537.fastq assembly/nphase/pairwise_longread_aln_haplotype1.paf > assembly/nphase/miniasm_assembly_haplotype1.gfa
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_539.fastq assembly/nphase/pairwise_longread_aln_haplotype2.paf > assembly/nphase/miniasm_assembly_haplotype2.gfa
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_542.fastq assembly/nphase/pairwise_longread_aln_haplotype3.paf > assembly/nphase/miniasm_assembly_haplotype3.gfa
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_544.fastq assembly/nphase/pairwise_longread_aln_haplotype4.paf > assembly/nphase/miniasm_assembly_haplotype4.gfa
+
 # Extract fasta sequence from the assembly graph
 awk '/^S/{print ">"$2"\n"$3}' assembly/nphase/miniasm_assembly_haplotype1.gfa | fold > assembly/nphase/miniasm_assembly_haplotype1.fasta
+awk '/^S/{print ">"$2"\n"$3}' assembly/nphase/miniasm_assembly_haplotype2.gfa | fold > assembly/nphase/miniasm_assembly_haplotype2.fasta
+awk '/^S/{print ">"$2"\n"$3}' assembly/nphase/miniasm_assembly_haplotype3.gfa | fold > assembly/nphase/miniasm_assembly_haplotype3.fasta
+awk '/^S/{print ">"$2"\n"$3}' assembly/nphase/miniasm_assembly_haplotype4.gfa | fold > assembly/nphase/miniasm_assembly_haplotype4.fasta
+
+
 ```
 
 #### Note that nPhase only clusters the long reads, unlike HAT, so we do not know which short read belong to which haplotype. For that reason, we can not polish the haplotype asseblies.
