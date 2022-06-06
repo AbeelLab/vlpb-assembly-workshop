@@ -63,9 +63,9 @@ You will need a laptop with a linux-like environment available that can run the 
 ### Exercises
 - Haplotype phasing on triploid simulated genome ([`HAT`](https://github.com/AbeelLab/hat) and `nPhase`)
 - Assembling haplotype-phased reads (`miniasm`)
-- Haplotype phasing visualization (`GenomeView` and `HaplotypeVisualizer`)
+- Haplotype phasing visualization 
   - Alignment of reads to reconstructed haplotypes ('bwa')
-  - Alignment of haplotypes (`Mauve`) 
+  - Visualizing alignments using (`IGV`)
 
 
 ### Planning
