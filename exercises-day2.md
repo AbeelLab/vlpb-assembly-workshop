@@ -116,6 +116,17 @@ HAT -r data/reference/reference_scI_CP048983.1.fasta -ha True -lf data/reads/lon
 tar -xcvf HAT-output.tar.gz -C phasing/hat
 ```
 
+- `HAT` identifies phasing blocks and clusters reads within these blocks to haplotypes. In our example, `HAT` found 3 phasing blocks, the corresponding folders are titled to indicate the coordinates on the chromosome. Notice that first 2 blocks (`43-208081_207017-207059` and `43-208081_207120-208081` cover a small region whereas the 3rd block (`43-208081_43-207000`) is ~200kbp long. It is likely that the first 2 blocks are teleomeres which can be difficult to work with and assemble.
+```bash
+phasing/hat/
+├── 43-208081_207017-207059
+├── 43-208081_207120-208081
+├── 43-208081_43-207000
+```
+- I used the long reads clustered in the 3rd phasing block to assemble 3 haplotypes. You can find these assembles under `43-208081_43-207000` titled `scI_0_assembly.gfa`, `scI_1_assembly.gfa` and `scI_2_assembly.gfa`. I used `miniasm` for assembly. 
+#### For self exercise feel free to try assembling the haplotypes yourself!! You can check the exercise notes from yesterday to recall how we used `miniasm`
+
+
 #### Task: Run nPhase
 
 - Create a directory to store the nPhase phasing outputs
@@ -148,29 +159,39 @@ nphase pipeline --sampleName scI --reference data/reference/reference_scI_CP0489
 	- scI_0.1_0.01_0.05_0_phasedDataSimple.tsv: For each haplotig, the start position, stop position, chromosome, y position. Used to generate the phasedVis plot.
 	- scI_0.1_0.01_0.05_0_covVis.tsv: For each haplotig, the haplotig name, chromosome, 5kb window, mean coverage for the window
     
-- We also have one `fastq` file for each haplotig predicted in `Phased/FastQ`, and the long reads that belong to them. We can use these long reads to assemble haplotypes separately. We will use `Flye` for assembly, you can repeat the commands we ran yesterday. First create a directory to store the phased assembly. Then unzip the fastq files
+- We also have one `fastq` file for each haplotig predicted in `Phased/FastQ`, and the long reads that belong to them. We can use these long reads to assemble haplotypes separately. We will use `Flye` for assembly, you can repeat the commands we ran yesterday. First create a directory to store the phased assembly. Then unzip the clustered fastq files
 
 ```bash
 mkdir assembly/nphase
 gunzip phasing/nphase/scI/Phased/FastQ/*.gz
+```
 
+- Although we know the real chromosome was a triploid, `nPhase` identified 4 haplotypes in total. See the clustered read files below:
+```bash
+phasing/nphase/scI/Phased/FastQ/
+├── scI_0.1_0.01_0.05_0_mergedCluster_537.fastq
+├── scI_0.1_0.01_0.05_0_mergedCluster_539.fastq
+├── scI_0.1_0.01_0.05_0_mergedCluster_542.fastq
+└── scI_0.1_0.01_0.05_0_mergedCluster_544.fastq
+```
+
+```bash
 # Pairwise alignment of long reads
-mkdir assembly/nphase/haplotype1
-flye --nano-raw phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_537.fastq -t 2 -g 200000 -i 3 --out-dir assembly/nphase/haplotype1
-mv assembly/nphase/haplotype1/assembly.fasta assembly/nphase/flye_haplotype1.fasta
-sed -i 's/>contig_1/>flye_haplotype1/g' assembly/nphase/flye_haplotype1.fasta
-mkdir assembly/nphase/haplotype2
-flye --nano-raw phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_539.fastq -t 2 -g 200000 -i 3 --out-dir assembly/nphase/haplotype2
-mv assembly/nphase/haplotype2/assembly.fasta assembly/nphase/flye_haplotype2.fasta
-sed -i 's/>contig_1/>flye_haplotype2/g' assembly/nphase/flye_haplotype2.fasta
-mkdir assembly/nphase/haplotype3
-flye --nano-raw phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_542.fastq -t 2 -g 200000 -i 3 --out-dir assembly/nphase/haplotype3
-mv assembly/nphase/haplotype3/assembly.fasta assembly/nphase/flye_haplotype3.fasta
-sed -i 's/>contig_2/>flye_haplotype3/g' assembly/nphase/flye_haplotype3.fasta
-mkdir assembly/nphase/haplotype4
-flye --nano-raw phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_544.fastq -t 2 -g 200000 -i 3 --out-dir assembly/nphase/haplotype4
-mv assembly/nphase/haplotype4/assembly.fasta assembly/nphase/flye_haplotype4.fasta
-sed -i 's/>contig_2/>flye_haplotype4/g' assembly/nphase/flye_haplotype4.fasta
+# Haplotype 1 - cluser 537
+minimap2 -x ava-ont -t 2 phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_537.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_537.fastq > assembly/nphase/longreads_pairwise_hap1.paf
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_537.fastq assembly/nphase/longreads_pairwise_hap1.paf > assembly/nphase/assembly_hap1.gfa
+
+# Haplotype 2 - cluster 539
+minimap2 -x ava-ont -t 2 phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_539.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_539.fastq > assembly/nphase/longreads_pairwise_hap2.paf
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_539.fastq assembly/nphase/longreads_pairwise_hap2.paf > assembly/nphase/assembly_hap2.gfa
+
+# Haplotype 3 - cluster 542
+minimap2 -x ava-ont -t 2 phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_542.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_542.fastq > assembly/nphase/longreads_pairwise_hap3.paf
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_542.fastq assembly/nphase/longreads_pairwise_hap3.paf > assembly/nphase/assembly_hap3.gfa
+
+# Haplotype 4 - cluster 544
+minimap2 -x ava-ont -t 2 phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_544.fastq phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_544.fastq > assembly/nphase/longreads_pairwise_hap4.paf
+miniasm -f phasing/nphase/scI/Phased/FastQ/scI_0.1_0.01_0.05_0_mergedCluster_544.fastq assembly/nphase/longreads_pairwise_hap4.paf > assembly/nphase/assembly_hap4.gfa
 ```
 
 #### Note that nPhase only clusters the long reads, unlike HAT, so we do not know which short read belong to which haplotype. For that reason, we can not polish the haplotype asseblies.
