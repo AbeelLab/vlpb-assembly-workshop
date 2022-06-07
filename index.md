@@ -17,6 +17,8 @@ This is a bring your own machine workshop.
 
 A conda package is available for each day. Review the exercise documentations to install them.
 
+## For Mac users: you can download the list of required packages for day 1 [here](https://github.com/AbeelLab/vlpb-assembly-workshop/blob/main/vlpb1_packages.txt) and day 2 [here](https://github.com/AbeelLab/vlpb-assembly-workshop/blob/main/vlpb2_packages.txt). Then you can create a new environment with the packages installed yourself.
+
 You will need a laptop with a linux-like environment available that can run the pre-packaged environment with its tools. You can use any linux-like environment: WSL2, linux, Mac, VM or a remote system. This system must support conda environment mentioned above
  
 # Schedule
