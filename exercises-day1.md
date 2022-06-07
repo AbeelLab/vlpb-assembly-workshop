@@ -96,7 +96,7 @@ mkdir assembly/flye
 - This time we will assemble CBS1453 using `Flye`
   
 ```bash
-flye --nano-raw data/reads/longreads_filtered.fastq data/reads/longreads_filtered.fastq -t 2 -g 200000 -i 3 --asm-coverage 40 --out-dir assembly/flye
+flye --nano-raw data/reads/longreads_filtered.fastq -t 2 -g 200000 -i 3 --asm-coverage 40 --out-dir assembly/flye
 ```
 
 #### Task: Polish assembly with short reads
