@@ -220,6 +220,6 @@ samtools view -bS -q 35 phasing/hat/43-208081_43-207000/scI_hap0_longreads0_aln.
 samtools sort -t 2 phasing/hat/43-208081_43-207000/scI_hap0_longreads0_aln.bam -o phasing/hat/43-208081_43-207000/scI_hap0_longreads0_aln.sorted.bam
 samtools index phasing/hat/43-208081_43-207000/scI_hap0_longreads0_aln.sorted.bam 
 ```
-- Finally we can visualize these alignments on `IGV` browser. I have created a new session and uploaded the alignment files already. You can download the session here. Open the `IGV` [web app](https://igv.org/app/) in your browser, and load the session file with `json` extension. You can find an explanation of how to load session files on the official IGV documentation [here](https://igvteam.github.io/igv-webapp/#session-files)
+- Finally we can visualize these alignments on `IGV` browser. I have created a new session and uploaded the alignment files already. You can download the session [**HERE**](https://github.com/AbeelLab/vlpb-assembly-workshop/blob/main/hat_viz.json). Open the `IGV` [web app](https://igv.org/app/) in your browser, and load the session file with `json` extension. You can find an explanation of how to load session files on the official IGV documentation [here](https://igvteam.github.io/igv-webapp/#session-files)
 
 #### Question: Why do we have a lot of mismatches in the long read alignment?
