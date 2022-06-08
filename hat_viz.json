@@ -1,0 +1,54 @@
+{
+	"version": "2.12.6",
+	"showSampleNames": false,
+	"reference": {
+		"fastaURL": "https://drive.google.com/file/d/1rMXTvIH97nxjy6OxOT-aiW5wGNtUZyaH/view?usp=drive_web",
+		"indexURL": "https://drive.google.com/file/d/10HQ2S4BRIFqN4S1iKdKHXNSkyZSH7VDY/view?usp=drive_web"
+	},
+	"locus": "utg000001l:99,892-101,465",
+	"tracks": [
+		{
+			"type": "sequence",
+			"order": -9007199254740991
+		},
+		{
+			"url": "https://drive.google.com/file/d/189cDygmLRHouRP6YKQ-GVT3ylq6BKP36/view?usp=drive_web",
+			"name": "scI_hap0_longreads0_aln.sorted.bam",
+			"indexURL": "https://drive.google.com/file/d/1v3nqbIr9vKwOT0ep6vLOwE-q2HICHACW/view?usp=drive_web",
+			"indexFilename": "scI_hap0_longreads0_aln.sorted.bam.bai",
+			"derivedName": true,
+			"format": "bam",
+			"type": "alignment",
+			"alleleFreqThreshold": 0.2,
+			"showInsertions": false,
+			"order": 4
+		},
+		{
+			"url": "https://drive.google.com/file/d/1nyFSDsaIt6xEBIgckUIhWD0jVzivxEiZ/view?usp=drive_web",
+			"name": "scI_hap0_shortreads0_aln.sorted.bam",
+			"indexURL": "https://drive.google.com/file/d/15OXYzT8fOs2PQZgVs0YYCcEQWlrS7t3P/view?usp=drive_web",
+			"indexFilename": "scI_hap0_shortreads0_aln.sorted.bam.bai",
+			"derivedName": true,
+			"format": "bam",
+			"type": "alignment",
+			"alleleFreqThreshold": 0.2,
+			"displayMode": "EXPANDED",
+			"viewAsPairs": true,
+			"showInsertions": false,
+			"order": 5
+		},
+		{
+			"url": "https://drive.google.com/file/d/1NJUSgcuNyUlbx5HVCziU2ozoWl8oDFDi/view?usp=drive_web",
+			"name": "scI_hap0_shortreads1_aln.sorted.bam",
+			"indexURL": "https://drive.google.com/file/d/1SNn_FDH6TxDrX6NiY0WvoBfBk00-hEQ3/view?usp=drive_web",
+			"indexFilename": "scI_hap0_shortreads1_aln.sorted.bam.bai",
+			"derivedName": true,
+			"format": "bam",
+			"type": "alignment",
+			"alleleFreqThreshold": 0.2,
+			"colorBy": "none",
+			"showInsertions": false,
+			"order": 5
+		}
+	]
+}
