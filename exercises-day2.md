@@ -81,6 +81,7 @@ freebayes -f data/reference/reference_scI_CP048983.1.fasta phasing/hat/shortread
 # Extract only the SNPS from the vcf output
 vcffilter -f "TYPE = snp" phasing/hat/var.vcf > phasing/hat/snp-var.vcf
 bgzip -c phasing/hat/snp-var.vcf > phasing/hat/snp-var.vcf.gz
+tabix -f -p vcf phasing/hat/snp-var.vcf.gz
 ```
 
 - Let's align the long reads to the reference genome (`minimap2`)
